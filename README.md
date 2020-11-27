@@ -38,7 +38,7 @@ ___
 ## Technology Stack
 
 ### Frontend:
-- React Library + Typescript
+- React Library + Typescript + CSS3 + HTML5
 
 ### Backend:
 - Server: Node.js + Express
