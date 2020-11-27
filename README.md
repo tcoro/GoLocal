@@ -43,3 +43,8 @@ ___
 ### Backend:
 - Server: Node.js + Express
 - Database: MariaDB
+
+___
+
+## Mockup
+Mockup was created in Figma: [Link](https://www.figma.com/file/UlcgEQ1vDUpW9JGQQKlTBM/GoLocal-Mockups?node-id=0%3A1)
