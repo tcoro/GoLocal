@@ -42,4 +42,4 @@ ___
 
 ### Backend:
 - Server: Node.js + Express
-- Database: MySQL + MariaDB
+- Database: MariaDB
