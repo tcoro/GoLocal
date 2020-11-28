@@ -4,7 +4,7 @@
   "description": "Go Local is an online portal promoting local farmers.\r This project was build inside of a Hackathon of an interdisciplinary course.",
   "main": "server.js",
   "scripts": {
-    "start": "cd server && npm install && npm run start"
+    "start": "cd server/client && npm run build && cd .. && cd npm install && npm run start"
   },
   "author": "",
   "license": "ISC",
