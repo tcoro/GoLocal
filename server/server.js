@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 
 // Set static folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "../client/build")));
 
 const PORT = 3000 || process.env.PORT;
 
