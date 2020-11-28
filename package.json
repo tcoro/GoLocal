@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Go Local is an online portal promoting local farmers.\r This project was build inside of a Hackathon of an interdisciplinary course.",
   "main": "server.js",
   "scripts": {
     "build": "cd client && npm run build",
@@ -9,5 +9,16 @@
     "dev": "nodemon server"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tcoro/GoLocal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tcoro/GoLocal/issues"
+  },
+  "homepage": "https://github.com/tcoro/GoLocal#readme"
 }
