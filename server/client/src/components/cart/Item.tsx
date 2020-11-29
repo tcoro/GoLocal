@@ -10,13 +10,15 @@ export const Item = function ({ item }: Props) {
     const { count, name, farmer, price } = item;
 
     return (
-        <>
-            <span>{count}</span>
-            <span>{name}</span>
-            <span>{farmer}</span>
-            <span>{price}</span>
-            <button>Delete</button>
-        </>
+
+        <tr>
+            <td>{count}</td>
+            <td>{name}</td>
+            <td>{farmer}</td>
+            <td>{price}</td>
+            <td><button>Delete</button></td>
+        </tr>
+
     )
 
 }
