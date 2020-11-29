@@ -1,10 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import './home.css'
 
 export const Home = function () {
     return (
         <>
-            <Link to={"/example"}>example</Link>
+            <div className={"home"}>
+                <div><h1>GO LOCAL</h1></div>
+            <div><h4>  your local farmer shop</h4></div>
+            </div>
         </>
     )
 }

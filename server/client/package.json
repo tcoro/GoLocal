@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "socket.io-client": "2.3.1",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
@@ -11,6 +12,7 @@
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
     "@types/react-router-dom": "^5.1.6",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -41,8 +43,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },"engines": {
-  "node": "12.x",
-  "npm": "6.x"
-}
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  }
 }
