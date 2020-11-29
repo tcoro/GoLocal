@@ -1,41 +1,22 @@
 import "reflect-metadata";
-import {createConnection, getRepository} from "typeorm";
-import {getManager} from "typeorm";
+import {createConnection} from "typeorm";
 import {User} from "./entity/User";
 
+createConnection().then(async connection => {
+/*
+    console.log("Inserting a new user into the database...");
 
-createConnection()
-  .then(async (connection) => {
-    let user = await getManager()
-        .createQueryBuilder(User, "user")
-        .where("user.id = :id", { id: 1 })
-        .getOne();
-        console.log(user);
-  }).catch((error) => console.log(error));
+    const user = new User();
+    user.firstName = "Timber";
+    user.lastName = "Saw";
+    user.age = 25;
+    await connection.manager.save(user);
+    console.log("Saved a new user with id: " + user.id);
+*/
+    console.log("Loading users from the database...");
+    const users = await connection.manager.find(User);
+    console.log("Loaded users: ", users);
 
-
-/*createConnection({
-
-  type: "mysql",
-  host: "localhost",
-  port: 3306,
-  username: "golocal_svc",
-  password: "golocal",
-  database: "golocal_db",
-
-}).then(async connection => {
-
-
-
+    console.log("Here you can setup and run express/koa/any other framework.");
 
 }).catch(error => console.log(error));
-*/
-/*
-
-
-  let user = await getManager()
-      .createQueryBuilder(User, "user")
-      .where("user.id = :id", { id: 1 })
-      .getOne();
-
- */
