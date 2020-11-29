@@ -1,13 +1,17 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
-import {OneToOne, JoinColumn} from "typeorm";
+import {OneToOne, OneToMany, JoinColumn} from "typeorm";
 import {User} from "./User";
 import {Location} from "./Location";
+import {Item} from "./Item";
 
 @Entity()
 export class Farmer {
 
     @PrimaryGeneratedColumn()
     id: number;
+
+    @Column({ type: "int" })
+    farmerLicence: number;
 
     @CreateDateColumn()
     stampCreated: Date;
@@ -21,6 +25,9 @@ export class Farmer {
     @Column({ type: "int" })
     locationId: number;
 
+    @Column({ type: "int",  nullable: true, default: null })
+    supplyId: number;
+
     //Realtions
     @OneToOne(type => User)
     @JoinColumn()
@@ -29,4 +36,7 @@ export class Farmer {
     @OneToOne(type => Location)
     @JoinColumn()
     location: Location;
+
+    @OneToMany(() => Item, item => item.farmer)
+    item: Item[];
 }

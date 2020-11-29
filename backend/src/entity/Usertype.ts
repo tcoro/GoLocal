@@ -15,7 +15,7 @@ export class Usertype {
     stampUpdated: Date;
 
     @Column("varchar", { length: 100 })
-    type: string;
+    usertype: string;
 
     @OneToMany(() => User, user => user.usertype)
     user: User[];

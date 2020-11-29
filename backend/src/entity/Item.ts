@@ -3,7 +3,8 @@ import {OneToOne, ManyToOne, JoinColumn} from "typeorm";
 import {Cart} from "./Cart";
 import {Wishlist} from "./Wishlist";
 import {Itemtype} from "./Itemtype";
-import {Supply} from "./Supply";
+import {Purchasetype} from "./Purchasetype";
+import {Farmer} from "./Farmer";
 
 @Entity()
 export class Item {
@@ -18,13 +19,37 @@ export class Item {
     stampUpdated: Date;
 
     @Column({ type: "int" })
-    typeId: number;
+    itemtypeId: number;
+
+    @Column({ type: "int",  nullable: true, default: null })
+    wishlistId: number;
 
     @Column({ type: "int" })
+    farmerId: number;
+
+    @Column({ type: "int" })
+    purchasetypeId: number;
+
+    @Column({ type: "int", nullable: true, default: null })
+    cartId: number;
+
+    @Column({ type: "float" })
     price: number;
 
     @Column("varchar", { length: 255 })
     name: string;
+
+    @Column({ type: "tinyint", nullable: true, default: null })
+    isVegan: number;
+
+    @Column({ type: "tinyint", nullable: true, default: null })
+    isBio: number;
+
+    @Column({ type: "tinyint", nullable: true, default: null })
+    isVegetarian: number;
+
+    @Column()
+    expiryDate: Date;
 
     // Relations
     @ManyToOne(() => Wishlist, wishlist => wishlist.item)
@@ -36,7 +61,10 @@ export class Item {
     @ManyToOne(() => Itemtype, itemtype => itemtype.item)
     itemtype: Itemtype;
 
-    @ManyToOne(() => Supply, supply => supply.item)
-    supply: Supply;
+    @ManyToOne(() => Farmer, farmer => farmer.item)
+    farmer: Farmer;
+
+    @ManyToOne(() => Purchasetype, purchasetype => purchasetype.item)
+    purchasetype: Purchasetype;
 
 }

@@ -16,7 +16,7 @@ export class User {
     stampUpdated: Date;
 
     @Column({ type: "int" })
-    typeId: number;
+    usertypeId: number;
 
     @Column({ type: "int" })
     secretId: number;

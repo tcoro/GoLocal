@@ -1,3 +1,4 @@
+import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
 import {OneToOne, OneToMany, JoinColumn} from "typeorm";
 import {Customer} from "./Customer";
 import {Item} from "./Item";
