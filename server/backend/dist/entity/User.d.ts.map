@@ -1,1 +1,0 @@
-{"version":3,"file":"User.d.ts","sourceRoot":"","sources":["../../src/entity/User.ts"],"names":[],"mappings":"AAEA,qBACa,IAAI;IAGb,EAAE,EAAE,MAAM,CAAC;IAGX,aAAa,EAAE,IAAI,CAAC;IAGpB,aAAa,EAAE,IAAI,CAAC;IAGpB,KAAK,EAAE,MAAM,CAAC;IAGd,OAAO,EAAE,MAAM,CAAC;IAGhB,SAAS,EAAE,MAAM,CAAC;IAGlB,UAAU,EAAE,MAAM,CAAC;IAGnB,SAAS,EAAE,MAAM,CAAC;CAErB"}
