@@ -2,7 +2,6 @@ import "reflect-metadata";
 import {createConnection, getRepository} from "typeorm";
 import {getManager} from "typeorm";
 import {User} from "./entity/User";
-import {Secret} from "./entity/Secret";
 
 
 createConnection()

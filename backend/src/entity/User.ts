@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
 import {OneToOne, JoinColumn} from "typeorm";
-import {Secret} from "./entity/Secret";
+import {Secret} from "./Secret";
 
 @Entity()
 export class User {
