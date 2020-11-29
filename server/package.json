@@ -2,15 +2,22 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "SET NODE_ENV=build && node server",
+    "dev": "SET NODE_ENV=development && nodemon server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "@feathersjs/express": "^4.5.10",
+    "@feathersjs/feathers": "^4.5.10",
+    "@feathersjs/socketio": "^4.5.10",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^2.3.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
