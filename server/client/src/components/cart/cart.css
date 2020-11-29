@@ -1,0 +1,12 @@
+.cartTable {
+    width: 100%;
+}
+
+.cartTable th {
+    background: #666;
+    color: #fff;
+}
+
+.totalCost {
+    text-align: left;
+}
