@@ -1,6 +1,6 @@
 {
    "type": "mysql",
-   "host": "localhost",
+   "host": "waffel-eisen.net",
    "port": 3306,
    "username": "golocal_svc",
    "password": "golocal",
