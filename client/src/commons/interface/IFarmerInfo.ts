@@ -1,7 +1,8 @@
 export interface IFarmerInfo {
     zipCode: number
     city: string
-    address: string
+    street: string
+    housenumber: number
     name: string
-    imagePath: any
+    imagePath?: any
 }
