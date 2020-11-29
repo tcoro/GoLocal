@@ -1,56 +1,78 @@
-import React from "react";
-import "./SettingsUser.css";
-
+import React, {useState} from "react";
 
 export const SettingsUser = function () {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [zipCode, setZipCode] = useState(-1);
+    const [city, setCity] = useState("");
+    const [street, setStreet] = useState("");
+    const [houseNr, setHouseNr] = useState(-1);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    function register() {
+        setFirstName("")
+        setLastName("")
+        setZipCode(-1)
+        setCity("")
+        setStreet("")
+        setHouseNr(-1)
+        setEmail("")
+        setPassword("")
+    }
+
     return (
-        <div className="wrapper">
 
-            <div className="inputBox">
-                <input type='text' />
-                <span className="text">First Name</span>
-            </div>
-
-            <div className="inputBox">
-                <input type='text' />
-                <span className="text">Last Name</span>
-            </div>
-
-            <div className="inputBox">
-                <input type='number' />
-                <span className="text">ZIP Code</span>
-            </div>
-
-            <div className="inputBox">
-                <input type='text' />
-                <span className="text">City</span>
-            </div>
-
-            <div className="inputBox">
-                <input type='text' />
-                <span className="text">Street</span>
-                <span className="line"></span>
-            </div>
-
-            <div className="inputBox">
-                <input type='number' />
-                <span className="text">House Number</span>
-            </div>
-
-            <div className="inputBox">
-                <input type='email' />
-                <span className="text">E-Mail</span>
-            </div>
-
-            <div className="col">
-                <div className="inputBox">
-                    <input type='password' />
-                    <span className="text">Password</span>
+        < div >
+            <form className={"form"}>
+                <div className={"flex"}>
+                    <label>
+                        First Name<br />
+                        <input type={"text"} value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+                    </label>
+                    <label>
+                        Last Name<br />
+                        <input type={"text"} value={lastName}
+                            onChange={(event) => setLastName(event.target.value)} />
+                    </label>
                 </div>
-            </div>
+                <div className={"flex"}>
+                    <label>
+                        ZIP Code<br />
+                        <input type={"text"} value={zipCode}
+                            onChange={(event) => setZipCode(parseInt(event.target.value))} />
+                    </label>
+                    <label>
+                        City<br />
+                        <input type={"text"} value={city} onChange={(event) => setCity(event.target.value)} />
+                    </label>
+                </div>
+                <div className={"flex"}>
+                    <label>
+                        Street<br />
+                        <input type={"text"} value={street} onChange={(event) => setStreet(event.target.value)} />
+                    </label>
+                    <label>
+                        Number<br />
+                        <input type={"text"} value={houseNr}
+                            onChange={(event) => setHouseNr(parseInt(event.target.value))} />
+                    </label>
+                </div>
 
-            <input type="submit" value="Send"></input>
+                <label>
+                    E-Mail<br />
+                    <input type={"text"} value={email} onChange={(event) => setEmail(event.target.value)} />
+                </label>
 
+                <label>
+                    Password<br />
+                    <input type={"text"} value={password} onChange={(event) => setPassword(event.target.value)} />
+                </label>
+                <br />
+                <button onClick={register}>CONFIRM
+                    </button>
+            </form>
         </div >
+
     )
 }
