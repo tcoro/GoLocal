@@ -14,7 +14,7 @@ type Props = {
 export const Farmer = function ({ farmerInfo, farmerItems }: Props) {
     return (
         <>
-            {farmerInfo}
+            {farmerInfo.name} - {farmerInfo.zipCode} - {farmerInfo.city} - {farmerInfo.street} - {farmerInfo.name} - {farmerInfo.housenumber}
             {
                 farmerItems.map((item) =>
                     <FarmerItem item={item} />

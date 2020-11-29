@@ -6,6 +6,7 @@ import {Navbar} from "./components/Navbar/Navbar";
 import {Login} from "./components/Auth/Login";
 import {Register} from "./components/Auth/Register";
 import { FarmerList } from './components/farmersList/FarmerList';
+import {FarmerSocket} from "./components/farmersList/FarmerSocket";
 
 function App() {
     return (
@@ -16,7 +17,7 @@ function App() {
                 <Route path="/example" exact component={Form}/>
                 <Route path="/login" exact component={Login}/>
                 <Route path="/register" exact component={Register}/>
-                <Route path="/farmers" exact component={FarmerList}/>
+                <Route path="/farmers" exact component={FarmerSocket}/>
             </Switch>
         </BrowserRouter>
     );
