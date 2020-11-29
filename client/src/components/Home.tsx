@@ -6,7 +6,8 @@ export const Home = function () {
         <>
             <div className={"home"}>
                 <div><h1>GO LOCAL</h1></div>
-            <div><h4>  your local farmer shop</h4></div>
+                <img src={"./logo_big.png"} style={{width:"10em", height:"10em"}}/>
+                <div><h4> your local farmer shop</h4></div>
             </div>
         </>
     )
