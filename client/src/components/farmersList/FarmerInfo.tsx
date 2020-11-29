@@ -10,7 +10,9 @@ export const FarmerInfo = function ({ farmer }: Props) {
     const { zipCode, city, street, housenumber, name, imagePath } = farmer;
 
     return (
-        <li>
+        <>
+
+            {name}
 
             {zipCode}
 
@@ -20,11 +22,9 @@ export const FarmerInfo = function ({ farmer }: Props) {
 
             {housenumber}
 
-            {name}
-
             <img src={imagePath} className="farmerInfoImage" />
 
-        </li>
+        </>
 
     )
 }

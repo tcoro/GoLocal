@@ -2,6 +2,7 @@ import {Requests} from "./client/src/commons/enums/Requests";
 import {Responses} from "./client/src/commons/enums/Responses";
 import {IFarmer} from "./client/src/commons/interface/IFarmer"
 import { IItem } from "./client/src/commons/interface/IItem";
+import { IItemCart } from "./client/src/commons/interface/IItemCart";
 import { IFarmerInfo } from "./client/src/commons/interface/IFarmerInfo";
 
 const path = require("path");
@@ -83,7 +84,7 @@ let farmer2: IFarmer = {farmerInfo: farmerInfo2, items:[chicken, potato],
 let farmerList: Array<IFarmer> = [farmer1, farmer2]
 
 //##############################################################################
-
+let cartList: Array<IItemCart> = [];
 
 io.on("connection", (socket) => {
 
@@ -96,6 +97,16 @@ io.on("connection", (socket) => {
     socket.on(Requests.farmerlist, () => {
         console.log("famerlist request")
         io.emit(Responses.farmerlist, farmerList)
+    })
+
+    socket.on(Requests.cartlist, () => {
+        console.log("cartlist request")
+        io.emit(Responses.cartlist, cartList)
+    })
+
+    socket.on(Requests.addToCart, (item:IItemCart) => {
+        cartList.push(item);
+        io.emit(Responses.cartlist, cartList)
     })
 })
 

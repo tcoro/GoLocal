@@ -1,9 +1,9 @@
 import React from "react";
 import { Button } from "../example/Button";
-import { IItem } from "./IItem"
+import { IItemCart } from '../../commons/interface/IItemCart';
 
 type Props = {
-    item: IItem
+    item: IItemCart
 }
 
 export const Item = function ({ item }: Props) {
