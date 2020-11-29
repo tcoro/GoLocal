@@ -1,6 +1,6 @@
 import {Requests} from "./client/src/commons/enums/Requests";
 import {Responses} from "./client/src/commons/enums/Responses";
-import {ILogin} from "./client/src/commons/interface/ILogin";
+
 
 const path = require("path");
 const http = require("http");
@@ -14,14 +14,14 @@ const io = socketio(server);
 // Set static folder
 app.use(express.static(path.join(__dirname, "/client/build")));
 
+
 io.on("connection", (socket) => {
 
-    socket.on(Requests.login, ({email: email, password: password}:ILogin) => {
+    socket.on(Requests.login, ({email: email, password: password}) => {
         console.log("test");
         let response = false;
         io.emit(Responses.login, {email:email, response:response})
     })
-
 })
 
 
