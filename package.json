@@ -1,26 +1,25 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Go Local is an online portal promoting local farmers.\r This project was build inside of a Hackathon of an interdisciplinary course.",
-  "main": "server.js",
+  "description": "",
+  "main": "server.ts",
   "scripts": {
-    "start": "cd server && npm install && npm run start"
+    "start": "ts-node server.ts",
+    "dev": "SET NODE_ENV=development && nodemon server"
   },
   "author": "",
   "license": "ISC",
-  "directories": {
-    "doc": "docs"
+  "dependencies": {
+    "@feathersjs/express": "^4.5.10",
+    "@feathersjs/feathers": "^4.5.10",
+    "@feathersjs/socketio": "^4.5.10",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^2.3.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tcoro/GoLocal.git"
-  },
-  "bugs": {
-    "url": "https://github.com/tcoro/GoLocal/issues"
-  },
-  "homepage": "https://github.com/tcoro/GoLocal#readme",
-  "engines": {
-    "node": "12.x",
-    "npm": "6.x"
+  "devDependencies": {
+    "nodemon": "^2.0.3"
   }
 }

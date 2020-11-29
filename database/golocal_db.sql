@@ -292,19 +292,14 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `stamp_created` timestamp NOT NULL DEFAULT current_timestamp(),
-  `stamp_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type_id` int(11) NOT NULL,
   `secret_id` int(11) NOT NULL,
-  `first_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  KEY `User_FK_1` (`type_id`),
-  KEY `user_FK` (`secret_id`),
-  CONSTRAINT `User_FK_1` FOREIGN KEY (`type_id`) REFERENCES `user_type` (`id`),
-  CONSTRAINT `user_FK` FOREIGN KEY (`secret_id`) REFERENCES `secret` (`id`)
+  `stamp_created` datetime NOT NULL,
+  `stamp_updated` datetime NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -314,7 +309,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (7,'2020-11-28 12:57:28','2020-11-28 12:57:28','p.sejerman@gmail.com',1,1,'Peter','Sejerman'),(8,'2020-11-28 13:13:02','2020-11-28 13:13:02','gernhart@mail.de',2,2,'Gernhart','Reinholdsen');
+INSERT INTO `user` VALUES (7,1,1,'0000-00-00 00:00:00','0000-00-00 00:00:00','','',''),(8,2,2,'0000-00-00 00:00:00','0000-00-00 00:00:00','','','');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,4 +378,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-28 14:51:45
+-- Dump completed on 2020-11-29 11:03:02
