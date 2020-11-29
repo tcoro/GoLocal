@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "node server",
+    "start": "ts-node server.ts",
     "dev": "SET NODE_ENV=development && nodemon server"
   },
   "author": "",
