@@ -1,9 +1,12 @@
+import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
 import {OneToOne, OneToMany, JoinColumn} from "typeorm";
 import {Customer} from "./Customer";
 import {Item} from "./Item";
 
+
+
 @Entity()
-export class Wishlist {
+export class Cart {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -17,11 +20,19 @@ export class Wishlist {
     @Column({ type: "int" })
     customerId: number;
 
-    //Relations
+    @Column({ type: "int" })
+    itemId: number;
+
+    @Column({ type: "int" })
+    quantity: number;
+
+    //Realtions
     @OneToOne(type => Customer)
     @JoinColumn()
     customer: Customer;
 
-    @OneToMany(() => Item, item => item.wishlist)
+    @OneToMany(() => Item, item => item.cart)
     item: Item[];
+
+
 }

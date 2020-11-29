@@ -1,24 +1,23 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
 import {OneToMany} from "typeorm";
-import {User} from "./Supply";
-
+import {User} from "./User";
 
 @Entity()
-export class Purchasetype {
+export class Usertype {
 
     @PrimaryGeneratedColumn()
     id: number;
 
     @CreateDateColumn()
-    stamp_created: Date;
+    stampCreated: Date;
 
     @UpdateDateColumn()
-    stamp_updated: Date;
+    stampUpdated: Date;
 
     @Column("varchar", { length: 100 })
     type: string;
 
-    @OneToMany(() => Supply, supply => supply.purchasetype)
-    supply: Supply[];
+    @OneToMany(() => User, user => user.usertype)
+    user: User[];
 
 }

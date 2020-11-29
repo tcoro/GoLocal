@@ -1,4 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
+import {OneToOne, JoinColumn} from "typeorm";
+import {User} from "./User";
+import {Location} from "./Location";
 
 @Entity()
 export class Customer {
@@ -7,14 +10,23 @@ export class Customer {
     id: number;
 
     @CreateDateColumn()
-    stamp_created: Date;
+    stampCreated: Date;
 
     @UpdateDateColumn()
-    stamp_updated: Date;
+    stampUpdated: Date;
 
     @Column({ type: "int" })
-    user_id: number;
+    userId: number;
 
     @Column({ type: "int" })
-    location_id: number;
+    locationId: number;
+
+    //Realtions
+    @OneToOne(type => User)
+    @JoinColumn()
+    user: User;
+
+    @OneToOne(type => Location)
+    @JoinColumn()
+    location: Location;
 }

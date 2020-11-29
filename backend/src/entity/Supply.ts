@@ -1,4 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
+import {ManyToOne} from "typeorm";
+import {Purchasetype} from "./Purchasetype";
+import {Item} from "./Item";
 
 @Entity()
 export class Supply {
@@ -7,21 +10,35 @@ export class Supply {
     id: number;
 
     @CreateDateColumn()
-    stamp_created: Date;
+    stampCreated: Date;
 
     @UpdateDateColumn()
-    stamp_updated: Date;
+    stampUpdated: Date;
 
     @Column({ type: "int" })
     farmer_id: number;
 
     @Column({ type: "int" })
-    item_id: number;
+    itemId: number;
 
     @Column({ type: "int" })
-    purchase_type_id: number;
+    purchasetypeId: number;
+
+    @Column({ type: "tinyint" })
+    isVegan: number;
+
+    @Column({ type: "tinyint" })
+    isBio: number;
+
+    @Column({ type: "tinyint" })
+    isVegetarian: number;
 
     @Column()
-    expiry_date: Date;
+    expiryDate: Date;
 
+    @ManyToOne(() => Purchasetype, purchasetype => purchasetype.supply)
+    purchasetype: Purchasetype;
+
+    @OneToMany(() => Item, item => item.supply)
+    item: Item[];
 }
