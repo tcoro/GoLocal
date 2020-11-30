@@ -4,6 +4,7 @@ import {IFarmer} from "./client/src/commons/interface/IFarmer"
 import { IItem } from "./client/src/commons/interface/IItem";
 import { IItemCart } from "./client/src/commons/interface/IItemCart";
 import { IFarmerInfo } from "./client/src/commons/interface/IFarmerInfo";
+import {getAllFarmers} from "./src/farmers";
 
 const path = require("path");
 const http = require("http");
@@ -95,6 +96,10 @@ io.on("connection", (socket) => {
     })
 
     socket.on(Requests.farmerlist, () => {
+        const farmerJSON = getAllFarmers()
+        console.log(farmerJSON);
+
+
         console.log("famerlist request")
         io.emit(Responses.farmerlist, farmerList)
     })

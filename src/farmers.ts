@@ -10,7 +10,7 @@ import {Item} from "./entity/Item";
 
 
 
-function getAllFarmers(){
+export function getAllFarmers(){
   createConnection().then(async connection => {
     const farmerRepository = await connection.getRepository(Farmer);
     const farmers = await farmerRepository.find({ relations: [ "user", "location", "item"] });
