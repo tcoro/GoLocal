@@ -25,9 +25,6 @@ export class Farmer {
     @Column({ type: "int" })
     locationId: number;
 
-    @Column({ type: "int",  nullable: true, default: null })
-    supplyId: number;
-
     //Realtions
     @OneToOne(type => User)
     @JoinColumn()
