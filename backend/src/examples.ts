@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import {createConnection, Connection, getConnection} from "typeorm";
 import {User} from "./entity/User";
-//import {Farmer} from "./entity/Farmer";
+import {Cart} from "./entity/Cart";
 import {Secret} from "./entity/Secret";
 
 const connection = createConnection().catch(error => console.log(error));
@@ -37,9 +37,34 @@ function getAllUsers(){
   }).catch(error => console.log(error));
 }
 
-function getUserByMail(email){
-
+function createCart(customerId) {
+    createConnection().then(async connection => {
+  const cart = await getConnection()
+      .createQueryBuilder()
+      .select("cart")
+      .from(Cart, "cart")
+      .where("cart.customerId = :customerId", { customerId: customerId })
+      .getOne();
+      console.log(user);
+      }).catch(error => console.log(error));
 }
+function addToCart(item, cart){
+
+
+  createConnection().then(async connection => {
+    getConnection()
+    .createQueryBuilder()
+    .update(Item)
+    .set({
+        cartId: cart.id,
+    })
+    .where("id = :id", { id: item })
+    .execute();
+  }).catch(error => console.log(error));
+}
+
+
+
 
 //addUser(user, secret);
 getAllUsers();
