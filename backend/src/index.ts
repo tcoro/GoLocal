@@ -14,10 +14,9 @@ function getUserCredentials(email){
       .leftJoinAndSelect("user.secret", "secret")
       .where("user.email = :email", { email: email })
       .getOne();
-
       console.log(user);
       }).catch(error => console.log(error));
-}
+  }
 
 let email = "lbluten@mail.de";
 getUserCredentials(email);

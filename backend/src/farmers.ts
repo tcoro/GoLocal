@@ -18,10 +18,15 @@ function getAllFarmers(){
   }).catch(error => console.log(error));
 }
 
-function getUserByMail(email){
-
+function getFarmers(){
+  createConnection().then(async connection => {
+    const farmerRepository = await connection.getRepository(Farmer);
+    const farmers = await farmerRepository.find({ relations: [ "item"] });
+    console.log(farmers);
+  }).catch(error => console.log(error));
 }
 
 //addUser(user, secret);
 getAllFarmers();
+//getFarmers();
 //getUserByMail(user.email);
