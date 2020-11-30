@@ -28,6 +28,6 @@ function getFarmers(){
 }
 
 //addUser(user, secret);
-getAllFarmers();
+//getAllFarmers();
 //getFarmers();
 //getUserByMail(user.email);

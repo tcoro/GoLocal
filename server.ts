@@ -96,8 +96,8 @@ io.on("connection", (socket) => {
     })
 
     socket.on(Requests.farmerlist, () => {
-        const farmerJSON = getAllFarmers()
-        console.log(farmerJSON);
+        // const farmerJSON = getAllFarmers()
+        // console.log(farmerJSON);
 
 
         console.log("famerlist request")
