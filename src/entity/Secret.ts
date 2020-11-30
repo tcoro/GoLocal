@@ -7,15 +7,12 @@ export class Secret {
     id: number;
 
     @CreateDateColumn()
-    stamp_created: Date;
+    stampCreated: Date;
 
     @UpdateDateColumn()
-    stamp_updated: Date;
+    stampUpdated: Date;
 
     @Column("varchar", { length: 200 })
-    sercret: string;
-
-    @Column({ type: "tinyint" })
-    reset_id: number;
+    hash: string;
 
 }
