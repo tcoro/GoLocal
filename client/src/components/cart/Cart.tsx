@@ -4,6 +4,7 @@ import "./cart.css"
 import { IItemCart } from '../../commons/interface/IItemCart';
 import { SERVER_LINK } from '../../commons/config';
 import { Requests } from '../../commons/enums/Requests';
+import io from 'socket.io-client';
 
 
 type Props = {
