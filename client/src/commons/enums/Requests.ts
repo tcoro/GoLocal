@@ -3,4 +3,5 @@ export enum Requests {
     farmerlist,
     cartlist,
     addToCart,
+    emptyCart,
 }

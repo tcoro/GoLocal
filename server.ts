@@ -113,6 +113,12 @@ io.on("connection", (socket) => {
         cartList.push(item);
         io.emit(Responses.cartlist, cartList)
     })
+
+    
+    socket.on(Requests.emptyCart, () => {
+        cartList = [];
+        io.emit(Responses.cartlist, cartList)
+    })
 })
 
 

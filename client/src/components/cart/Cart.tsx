@@ -2,10 +2,22 @@ import React, { useState } from 'react';
 import { Item } from './Item';
 import "./cart.css"
 import { IItemCart } from '../../commons/interface/IItemCart';
+import { SERVER_LINK } from '../../commons/config';
+import { Requests } from '../../commons/enums/Requests';
+
 
 type Props = {
     items: Array<IItemCart>
 }
+
+let socket: any
+
+function empty() : any{
+    socket = io(SERVER_LINK);
+    socket.on(Requests.cartlist, (cartList: Array<IItemCart>) => {
+        socket.emit(Requests.emptyCart);
+    })
+} 
 
 export const Cart = function ({ items }: Props) {
 
@@ -61,6 +73,8 @@ export const Cart = function ({ items }: Props) {
                 </tr>
             </table>
 
+            <button onClick={empty()}>Empty Cart</button>
+
             < div >
                 <form className={"form"}>
                     <div className={"flex"}>
@@ -98,8 +112,7 @@ export const Cart = function ({ items }: Props) {
                     </div>
 
 
-                    <button onClick={register}>Buy
-                    </button>
+                    <button>Buy</button>
                 </form>
             </div >
         </>

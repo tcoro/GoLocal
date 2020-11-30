@@ -16,7 +16,6 @@ export const Item = function ({ item }: Props) {
             <td>{name}</td>
             <td>{farmer}</td>
             <td>{price}</td>
-            <td><button>Delete</button></td>
         </tr>
 
     )
