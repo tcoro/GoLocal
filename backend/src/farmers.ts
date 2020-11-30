@@ -15,6 +15,7 @@ function getAllFarmers(){
     const farmerRepository = await connection.getRepository(Farmer);
     const farmers = await farmerRepository.find({ relations: [ "user", "location", "item"] });
     console.log(farmers);
+    console.log(farmers[1]);
   }).catch(error => console.log(error));
 }
 
