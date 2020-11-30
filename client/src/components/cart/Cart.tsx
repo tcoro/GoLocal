@@ -9,18 +9,10 @@ import io from 'socket.io-client';
 
 type Props = {
     items: Array<IItemCart>
+    emptyCart: () => void;
 }
 
-let socket: any
-
-function empty() : any{
-    socket = io(SERVER_LINK);
-    socket.on(Requests.cartlist, (cartList: Array<IItemCart>) => {
-        socket.emit(Requests.emptyCart);
-    })
-} 
-
-export const Cart = function ({ items }: Props) {
+export const Cart = function ({ items, emptyCart }: Props) {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -74,7 +66,7 @@ export const Cart = function ({ items }: Props) {
                 </tr>
             </table>
 
-            <button onClick={empty()}>Empty Cart</button>
+            <button onClick={emptyCart}>Empty Cart</button>
 
             < div >
                 <form className={"form"}>

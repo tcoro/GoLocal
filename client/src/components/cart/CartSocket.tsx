@@ -23,13 +23,17 @@ export const CartSocket = function () {
         })
     }, [])
 
+    function emptyCart() {
+        
+    socket.emit(Requests.emptyCart);
+    }
     function initCartList() {
         socket.emit(Requests.cartlist, "");
     }
 
     return (
         <>
-            <Cart items={cartList}/>
+            <Cart items={cartList} emptyCart={emptyCart}/>
         </>
     )
 }
