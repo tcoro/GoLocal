@@ -1,13 +1,11 @@
 import "reflect-metadata";
 import {createConnection, Connection, getConnection} from "typeorm";
+import {getManager} from "typeorm";
 import {User} from "./entity/User";
 import {Cart} from "./entity/Cart";
 import {Secret} from "./entity/Secret";
 
 const connection = createConnection().catch(error => console.log(error));
-
-
-
 
 /* Write New user und pass */
 
@@ -23,10 +21,10 @@ secret.hash ="Welt";
 function addUser(a, b){
   createConnection().then(async connection => {
 
-      let query = await connection.manager.save(secret);
-      user.secretId = query.id;
-      await connection.manager.save(user);
-    }).catch(error => console.log(error));
+    let query = await connection.manager.save(secret);
+    user.secretId = query.id;
+    await connection.manager.save(user);
+  }).catch(error => console.log(error));
 }
 
 function getAllUsers(){
@@ -37,35 +35,45 @@ function getAllUsers(){
   }).catch(error => console.log(error));
 }
 
-function createCart(customerId) {
-    createConnection().then(async connection => {
-  const cart = await getConnection()
-      .createQueryBuilder()
-      .select("cart")
-      .from(Cart, "cart")
-      .where("cart.customerId = :customerId", { customerId: customerId })
-      .getOne();
-      console.log(user);
-      }).catch(error => console.log(error));
+function createCartIdNotExists(customerId) {
+  createConnection().then(async connection => {
+    let cart = await getConnection()
+    .createQueryBuilder()
+    .select("cart")
+    .from(Cart, "cart")
+    .where("cart.customerId = :customerId", { customerId: customerId })
+    .getOne();
+    // Createcart
+    if (cart == undefined){
+      cart = new Cart();
+      cart.customerId = customerId;
+      await getManager().save(cart);
+    }
+    return cart.id;
+    }).catch(error => console.log(error));
 }
-function addToCart(item, cart){
 
+function getCartByCustomerId(customerId) {
+  createConnection().then(async connection => {
+    let cart = await getConnection()
+    .createQueryBuilder()
+    .select("cart")
+    .from(Cart, "cart")
+    .where("cart.customerId = :customerId", { customerId: customerId })
+    .getMany();
+    console.log(cart);
+    }).catch(error => console.log(error));
+}
+
+function addItemToCart(itemId, customerId, quantity){
 
   createConnection().then(async connection => {
-    getConnection()
-    .createQueryBuilder()
-    .update(Item)
-    .set({
-        cartId: cart.id,
-    })
-    .where("id = :id", { id: item })
-    .execute();
+    const cart = new Cart();
+    cart.customerId = customerId;
+    cart.itemId = itemId;
+    cart.quantity = quantity;
+    await getManager().save(cart);
   }).catch(error => console.log(error));
 }
-
-
-
-
-//addUser(user, secret);
-getAllUsers();
-//getUserByMail(user.email);
+//addItemToCart(4,1,5);
+getCartByCustomerId(1);

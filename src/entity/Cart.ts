@@ -1,5 +1,5 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
-import {OneToOne, OneToMany, JoinColumn} from "typeorm";
+import {ManyToOne, OneToOne, OneToMany, JoinColumn} from "typeorm";
 import {Customer} from "./Customer";
 import {Item} from "./Item";
 
@@ -20,15 +20,15 @@ export class Cart {
     @Column({ type: "int" })
     customerId: number;
 
-    @Column({ type: "int" })
+    @Column({ type: "int", nullable: true, default: null})
     itemId: number;
 
-    @Column({ type: "int" })
+    @Column({ type: "int", nullable: true, default: null})
     quantity: number;
 
     //Realtions
-    @OneToOne(type => Customer)
-    @JoinColumn()
+
+    @ManyToOne(() => Customer, customer => customer.cart)
     customer: Customer;
 
     @OneToMany(() => Item, item => item.cart)

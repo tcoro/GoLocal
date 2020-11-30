@@ -1,7 +1,8 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
-import {OneToOne, JoinColumn} from "typeorm";
+import {OneToOne,OneToMany, JoinColumn} from "typeorm";
 import {User} from "./User";
 import {Location} from "./Location";
+import {Cart} from "./Cart";
 
 @Entity()
 export class Customer {
@@ -29,4 +30,7 @@ export class Customer {
     @OneToOne(type => Location)
     @JoinColumn()
     location: Location;
+
+    @OneToMany(() => Cart, cart => cart.customer)
+    cart: Cart[];
 }
