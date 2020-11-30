@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Item } from './Item';
 import "./cart.css"
 import { IItemCart } from '../../commons/interface/IItemCart';
@@ -30,7 +30,8 @@ export const Cart = function ({ items }: Props) {
     }
 
 
-    let count = 0;
+    let countPrice = 0;
+    let countItems = 0;
 
     return (
         <>
@@ -49,53 +50,60 @@ export const Cart = function ({ items }: Props) {
                 <tr>
                     <td className="totalCost">
                         Total Cost: {
-                            items.forEach(item => count += item.count * item.price)}
-                        {count}
+                            items.forEach(item => countPrice += item.count * item.price)}
+                        {countPrice}
+                        <br></br>
+                        Total Items:  {
+                            items.forEach(item => countItems += item.count)}
+                        {countItems}
+
                     </td>
                 </tr>
             </table>
 
             < div >
-            <form className={"form"}>
-                <div className={"flex"}>
-                    <label>
-                        First Name<br />
-                        <input type={"text"} value={firstName} onChange={(event) => setFirstName(event.target.value)} />
-                    </label>
-                    <label>
-                        Last Name<br />
-                        <input type={"text"} value={lastName}
-                            onChange={(event) => setLastName(event.target.value)} />
-                    </label>
-                </div>
-                <div className={"flex"}>
-                    <label>
-                        ZIP Code<br />
-                        <input type={"text"} value={zipCode}
-                            onChange={(event) => setZipCode(parseInt(event.target.value))} />
-                    </label>
-                    <label>
-                        City<br />
-                        <input type={"text"} value={city} onChange={(event) => setCity(event.target.value)} />
-                    </label>
-                </div>
-                <div className={"flex"}>
-                    <label>
-                        Street<br />
-                        <input type={"text"} value={street} onChange={(event) => setStreet(event.target.value)} />
-                    </label>
-                    <label>
-                        Number<br />
-                        <input type={"text"} value={houseNr}
-                            onChange={(event) => setHouseNr(parseInt(event.target.value))} />
-                    </label>
-                </div>
+                <form className={"form"}>
+                    <div className={"flex"}>
+                        <label>
+                            First Name<br />
+                            <input type={"text"} value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+                        </label>
+                        <label>
+                            Last Name<br />
+                            <input type={"text"} value={lastName}
+                                onChange={(event) => setLastName(event.target.value)} />
+                        </label>
+                    </div>
+                    <div className={"flex"}>
+                        <label>
+                            ZIP Code<br />
+                            <input type={"text"} value={zipCode}
+                                onChange={(event) => setZipCode(parseInt(event.target.value))} />
+                        </label>
+                        <label>
+                            City<br />
+                            <input type={"text"} value={city} onChange={(event) => setCity(event.target.value)} />
+                        </label>
+                    </div>
+                    <div className={"flex"}>
+                        <label>
+                            Street<br />
+                            <input type={"text"} value={street} onChange={(event) => setStreet(event.target.value)} />
+                        </label>
+                        <label>
+                            Number<br />
+                            <input type={"text"} value={houseNr}
+                                onChange={(event) => setHouseNr(parseInt(event.target.value))} />
+                        </label>
+                    </div>
 
-               
-                <button onClick={register}>Buy
+
+                    <button onClick={register}>Buy
                     </button>
-            </form>
-        </div >
+                </form>
+            </div >
         </>
     )
 }
+
+export default Cart

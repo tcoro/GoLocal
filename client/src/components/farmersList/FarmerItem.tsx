@@ -14,7 +14,7 @@ let socket: any
 function onItemClick(e:any, item : IItem, name:string) : any {
     e.preventDefault();
     socket = io(SERVER_LINK);
-    var itemCart : IItemCart = {count:5, name: item.name, farmer:name, price: item.price}
+    var itemCart : IItemCart = {count:1, name: item.name, farmer:name, price: item.price}
 
     socket.emit(Requests.addToCart, itemCart);
 
