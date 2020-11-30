@@ -1,7 +1,9 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
+import {OneToMany} from "typeorm";
+import {User} from "./User";
 
 @Entity()
-export class Secret {
+export class Usertype {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -12,7 +14,10 @@ export class Secret {
     @UpdateDateColumn()
     stampUpdated: Date;
 
-    @Column("varchar", { length: 200 })
-    hash: string;
+    @Column("varchar", { length: 100 })
+    usertype: string;
+
+    @OneToMany(() => User, user => user.usertype)
+    user: User[];
 
 }

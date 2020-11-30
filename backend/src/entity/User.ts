@@ -1,6 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column} from "typeorm";
-import {OneToOne, JoinColumn} from "typeorm";
+import {OneToOne, ManyToOne, JoinColumn} from "typeorm";
 import {Secret} from "./Secret";
+import {Usertype} from "./Usertype";
 
 @Entity()
 export class User {
@@ -9,28 +10,32 @@ export class User {
     id: number;
 
     @CreateDateColumn()
-    stamp_created: Date;
+    stampCreated: Date;
 
     @UpdateDateColumn()
-    stamp_updated: Date;
+    stampUpdated: Date;
+
+    @Column({ type: "int" })
+    usertypeId: number;
+
+    @Column({ type: "int" })
+    secretId: number;
 
     @Column("varchar", { length: 255 })
     email: string;
 
-    @Column({ type: "int" })
-    type_id: number;
-
-    @Column({ type: "int" })
-    secret_id: number;
+    @Column("varchar", { length: 255 })
+    firstName: string;
 
     @Column("varchar", { length: 255 })
-    first_name: string;
+    lastName: string;
 
-    @Column("varchar", { length: 255 })
-    last_name: string;
-
-    @OneToOne(() => Secret)
+    // Relations
+    @OneToOne(type => Secret)
     @JoinColumn()
     secret: Secret;
+
+    @ManyToOne(() => Usertype, usertype => usertype.user)
+    usertype: Usertype;
 
 }
