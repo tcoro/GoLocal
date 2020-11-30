@@ -1,0 +1,17 @@
+.farmerTable {
+    width: 100%;
+}
+
+.farmerTable th {
+    background: rgb(0, 0, 255);
+    color: #fff;
+}
+
+.itemTable {
+    width: 50%;
+}
+
+.itemTable th {
+    background: rgb(255, 0, 0);
+    color: #fff;
+}

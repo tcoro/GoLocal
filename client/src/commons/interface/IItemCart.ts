@@ -1,4 +1,4 @@
-export interface IItem {
+export interface IItemCart {
     count : number
     name : string
     farmer: string

@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import { IItem } from './IItem';
 import { Item } from './Item';
 import "./cart.css"
+import { IItemCart } from '../../commons/interface/IItemCart';
 
 type Props = {
-    items: Array<IItem>
+    items: Array<IItemCart>
 }
 
 export const Cart = function ({ items }: Props) {
@@ -29,7 +29,6 @@ export const Cart = function ({ items }: Props) {
         setPassword("")
     }
 
-    items = Array({ count: 1, name: "lel", farmer: "lol", price: 45 }, { count: 2, name: "lel", farmer: "lol", price: 45 }, { count: 3, name: "lel", farmer: "lol", price: 45 })
 
     let count = 0;
 
